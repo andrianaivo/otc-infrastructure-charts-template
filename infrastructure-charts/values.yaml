@@ -59,3 +59,19 @@ charts:
   elastic-stack:
     namespace: monitoring
     targetRevision: "7.17.3-route-bugfix"
+  # monitoring
+  prometheus-stack:
+    namespace: monitoring
+    repoURL: "https://charts.iits.tech"
+    targetRevision: "43.2.0"
+    ignoreDifferences:
+      - jsonPointers:
+          - /imagePullSecrets
+        kind: ServiceAccount
+    syncOptions:
+      - ServerSideApply=true
+    parameters:
+      global.alertmanager.host: "admin.{{.Values.projectValues.appDomain}}"
+      global.prometheus.host: "admin.{{.Values.projectValues.appDomain}}"
+      global.grafana.host: "admin.{{.Values.projectValues.appDomain}}"
+      prometheusStack.grafana.adminPassword: "{{.Values.projectValues.basicAuthPassword}}"
