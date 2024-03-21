@@ -11,6 +11,7 @@ global:
     parameters:
       ingressRoute.adminDomain: "admin.{{.Values.projectValues.rootDomain}}"
       ingressRoute.host: "admin.{{.Values.projectValues.rootDomain}}"
+      ingress.host: "admin.{{.Values.projectValues.rootDomain}}"
       ingressRoute.rootDomain: "{{.Values.projectValues.rootDomain}}"
 charts:
   argocd-config:
