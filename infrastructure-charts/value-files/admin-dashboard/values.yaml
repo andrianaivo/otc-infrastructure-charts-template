@@ -1,10 +1,11 @@
 defaultDashboard:
+  tiles: {}
   tiles:
     akhq:
       href: "akhq/ui/"
       imgSrc: "https://cdn.icon-icons.com/icons2/2699/PNG/512/apache_kafka_vertical_logo_icon_169585.png"
       imgAlt: "akhq (kafka headquarter)"
-    alertManager: null
+    # alertManager
       # href: "/alertmanager"
       # imgSrc: "https://devopy.io/wp-content/uploads/2019/02/bell_260.svg"
       # imgAlt: "Alertmanager"
@@ -20,23 +21,23 @@ defaultDashboard:
       href: "elasticsearch"
       imgSrc: "https://iconape.com/wp-content/png_logo_vector/elasticsearch-logo.png"
       imgAlt: "Elasticsearch"
-    grafana: null
+    # grafana
       # href: "grafana/login/generic_oauth"
       # imgSrc: "https://seekicon.com/free-icon-download/grafana_2.png"
       # imgAlt: "Grafana"
-    keycloak: null
+    # keycloak
       # href: "keycloak/"
       # imgSrc: "https://www.quellwerke.de/fileadmin/Technologie_Logos/keycloak.png"
       # imgAlt: "Keycloak"
-    kibana: null
+    # kibana
       # href: "kibana/app/discover"
       # imgSrc: "https://cdn.iconscout.com/icon/free/png-512/elastic-1-283281.png"
       # imgAlt: "Kibana"
-    kyverno: null
+    # kyverno
       # href: "policies"
       # imgSrc: "https://cdn.shopify.com/s/files/1/1300/8977/collections/kyverno_480x480.png"
       # imgAlt: "Kyverno"
-    otc: null
+    # otc
       # href: "otcOIDC/"
       # imgSrc: "https://upload.wikimedia.org/wikipedia/commons/7/75/Otc-logo.png"
       # imgAlt: "OTC"
@@ -44,7 +45,7 @@ defaultDashboard:
       href: "prometheus"
       imgSrc: "https://www.logolynx.com/images/logolynx/8b/8b0c91b14fb1da0270f0c5ed3d69fac4.jpeg"
       imgAlt: "Prometheus"
-    vault: null
+    # vault
       # href: "vault/"
       # imgSrc: "https://www.drupal.org/files/project-images/Vault_VerticalLogo_FullColor.png"
       # imgAlt: "Vault"
