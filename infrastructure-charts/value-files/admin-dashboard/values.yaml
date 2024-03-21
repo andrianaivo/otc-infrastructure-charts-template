@@ -1,2 +1,4 @@
 defaultDashboard:
   title: "Custom Admin Board"
+deployment:
+  replicaCount: "1"
