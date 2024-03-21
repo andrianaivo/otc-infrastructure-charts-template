@@ -1,5 +1,4 @@
 defaultDashboard:
-  tiles: {}
   tiles:
     akhq:
       href: "akhq/ui/"
@@ -21,31 +20,67 @@ defaultDashboard:
       href: "elasticsearch"
       imgSrc: "https://iconape.com/wp-content/png_logo_vector/elasticsearch-logo.png"
       imgAlt: "Elasticsearch"
-    # grafana
-      # href: "grafana/login/generic_oauth"
-      # imgSrc: "https://seekicon.com/free-icon-download/grafana_2.png"
-      # imgAlt: "Grafana"
-    # keycloak
-      # href: "keycloak/"
-      # imgSrc: "https://www.quellwerke.de/fileadmin/Technologie_Logos/keycloak.png"
-      # imgAlt: "Keycloak"
-    # kibana
-      # href: "kibana/app/discover"
-      # imgSrc: "https://cdn.iconscout.com/icon/free/png-512/elastic-1-283281.png"
-      # imgAlt: "Kibana"
-    # kyverno
-      # href: "policies"
-      # imgSrc: "https://cdn.shopify.com/s/files/1/1300/8977/collections/kyverno_480x480.png"
-      # imgAlt: "Kyverno"
-    # otc
-      # href: "otcOIDC/"
-      # imgSrc: "https://upload.wikimedia.org/wikipedia/commons/7/75/Otc-logo.png"
-      # imgAlt: "OTC"
+    grafana:
+      disabled: true
+      href: "grafana/login/generic_oauth"
+      imgSrc: "https://seekicon.com/free-icon-download/grafana_2.png"
+      imgAlt: "Grafana"
+    keycloak:
+      disabled: true
+      href: "keycloak/"
+      imgSrc: "https://www.quellwerke.de/fileadmin/Technologie_Logos/keycloak.png"
+      imgAlt: "Keycloak"
+    kibana:
+      disabled: true
+      href: "kibana/app/discover"
+      imgSrc: "https://cdn.iconscout.com/icon/free/png-512/elastic-1-283281.png"
+      imgAlt: "Kibana"
+    kyverno:
+      disabled: true
+      href: "policies"
+      imgSrc: "https://cdn.shopify.com/s/files/1/1300/8977/collections/kyverno_480x480.png"
+      imgAlt: "Kyverno"
+    otc:
+      disabled: true
+      href: "otcOIDC/"
+      imgSrc: "https://upload.wikimedia.org/wikipedia/commons/7/75/Otc-logo.png"
+      imgAlt: "OTC"
     prometheus:
       href: "prometheus"
       imgSrc: "https://www.logolynx.com/images/logolynx/8b/8b0c91b14fb1da0270f0c5ed3d69fac4.jpeg"
       imgAlt: "Prometheus"
-    # vault
-      # href: "vault/"
-      # imgSrc: "https://www.drupal.org/files/project-images/Vault_VerticalLogo_FullColor.png"
-      # imgAlt: "Vault"
+    vault:
+      disabled: true
+      href: "vault/"
+      imgSrc: "https://www.drupal.org/files/project-images/Vault_VerticalLogo_FullColor.png"
+      imgAlt: "Vault"
+
+# use custom HTML website (add support for disabled tiles)
+website: |
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <title>{{ .Values.defaultDashboard.title }}</title>
+      <link rel="stylesheet" href="styles.css"> <!-- Link the new CSS file -->
+  </head>
+
+  <body>
+  <div class="container">
+      <header>
+          <img class="logo" src="{{ .Values.defaultDashboard.logoSrc }}" alt="{{ .Values.defaultDashboard.logoAlt }}"/>
+      </header>
+      <h1>{{ .Values.defaultDashboard.title }}</h1>
+      <div class="tiles">
+          {{- range .Values.defaultDashboard.tiles }}
+          {{- if not .disabled }}
+          <a href="{{ .href }}" class="tile" target="_blank">
+              <img src="{{ .imgSrc }}" alt="{{ .imgAlt }}">
+          </a>
+          {{- end }}
+          {{- end }}
+      </div>
+  </div>
+  </body>
+  </html>
